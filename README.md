@@ -16,6 +16,9 @@
 | 기록 보기 | 사용자가 자신의 노력을 기록을 확인합니다. |
 
 ## 2. 프로젝트 설계
+### wiki
+- [기능](https://github.com/f-lab-edu/kkumdori-land/wiki/%5Bmain%5D-%EA%B8%B0%EB%8A%A5-%EC%A0%95%EB%A6%AC)
+- [회원 의사결정](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%ED%9A%8C%EC%9B%90%5D-%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95)
 
 ### 의존 관계 설계
 ![스크린샷 2024-04-06 오후 3 55 33](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/613b97c9-7dd5-4dec-b8e4-4c0f42eec01f)
