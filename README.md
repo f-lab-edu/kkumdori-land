@@ -18,4 +18,4 @@
 ## 2. 프로젝트 설계
 
 ### 의존 관계 설계
-![스크린샷 2024-04-06 오후 3 48 56](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/ffbbc612-7791-4af8-8b3c-0147ac7bce9a)
+![스크린샷 2024-04-06 오후 3 55 33](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/613b97c9-7dd5-4dec-b8e4-4c0f42eec01f)
