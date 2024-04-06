@@ -20,4 +20,5 @@
 - [의사결정](https://github.com/f-lab-edu/kkumdori-land/wiki/%5Bmain%5D-%EC%9D%98%EC%82%AC-%EA%B2%B0%EC%A0%95)
 
 ### 의존 관계 설계
-![스크린샷 2024-04-06 오후 5 28 28](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/7a2e9d0f-8a69-4a0c-bd58-20187f752fa8)
+![스크린샷 2024-04-06 오후 5 42 43](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/af9f97f9-cb78-4bb3-ab96-176cec63f86c)
+
