@@ -27,6 +27,5 @@
 ![스크린샷 2024-04-07 오전 10 27 55](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/a5ee0937-4e01-4a2a-9154-66028a2798a1)
 
 
-### 의존 관계 설계
-![스크린샷 2024-04-06 오후 5 42 43](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/af9f97f9-cb78-4bb3-ab96-176cec63f86c)
-
+### 도메인 설계
+![스크린샷 2024-04-07 오후 1 50 29](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/f4d45ad1-474a-4f58-a59f-326c59d6b826)
