@@ -16,8 +16,11 @@
 | 기록 보기 | 사용자가 자신의 노력을 기록을 확인합니다. |
 
 ## 2. 프로젝트 설계
-### wiki
-- [의사결정](https://github.com/f-lab-edu/kkumdori-land/wiki/%5Bmain%5D-%EC%9D%98%EC%82%AC-%EA%B2%B0%EC%A0%95)
+### 의사결정
+#### 설정 관련 의사 결정
+- [[의사결정] REPO](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-REPO)
+#### 기능 관련 의사 결정
+- [[의사결정] 기능](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-%EA%B8%B0%EB%8A%A5)
 
 ### 화면 구상
 - [uizard](https://app.uizard.io/p/0702d861)
