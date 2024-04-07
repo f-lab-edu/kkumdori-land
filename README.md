@@ -18,7 +18,7 @@
 ## 2. 프로젝트 설계
 ### 의사결정
 #### 설정 관련 의사 결정
-- [[의사결정] REPO](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-REPO)
+- [[의사결정] 환경](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-%ED%99%98%EA%B2%BD)
 #### 기능 관련 의사 결정
 - [[의사결정] 기능](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-%EA%B8%B0%EB%8A%A5)
 
