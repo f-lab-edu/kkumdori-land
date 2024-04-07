@@ -19,6 +19,11 @@
 ### wiki
 - [의사결정](https://github.com/f-lab-edu/kkumdori-land/wiki/%5Bmain%5D-%EC%9D%98%EC%82%AC-%EA%B2%B0%EC%A0%95)
 
+### 화면 구상
+- [uizard](https://app.uizard.io/p/0702d861)
+![스크린샷 2024-04-07 오전 10 27 55](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/a5ee0937-4e01-4a2a-9154-66028a2798a1)
+
+
 ### 의존 관계 설계
 ![스크린샷 2024-04-06 오후 5 42 43](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/af9f97f9-cb78-4bb3-ab96-176cec63f86c)
 
