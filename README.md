@@ -28,7 +28,8 @@
 
 
 ### 도메인 설계
-![스크린샷 2024-04-07 오후 1 50 29](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/f4d45ad1-474a-4f58-a59f-326c59d6b826)
+![스크린샷 2024-04-09 오전 7 29 57](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/c50d1dc8-ecac-48c3-9de0-b6b3f005d645)
+
 
 ### 테이블 설계
 ![스크린샷 2024-04-07 오후 4 59 35](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/b1696c18-0024-46d1-a741-6206c4444e93)
