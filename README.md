@@ -32,6 +32,7 @@
 
 
 ### 테이블 설계
-![스크린샷 2024-04-07 오후 4 59 35](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/b1696c18-0024-46d1-a741-6206c4444e93)
+![스크린샷 2024-04-09 오전 8 27 48](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/9ffea557-f224-414b-99fb-3621dd40b82e)
+
 
 
