@@ -1,6 +1,8 @@
 package org.example.kkumdoriland.notification.domain;
 
-public class NotificationContents {
+import java.io.Serializable;
+
+public class NotificationContents implements Serializable {
     private String title;
     private String message;
 }

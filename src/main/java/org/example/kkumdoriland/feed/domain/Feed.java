@@ -7,10 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import org.example.kkumdoriland.common.BaseEntity;
 import org.example.kkumdoriland.user.domain.User;
 
 @Entity
-public class Feed {
+public class Feed extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
