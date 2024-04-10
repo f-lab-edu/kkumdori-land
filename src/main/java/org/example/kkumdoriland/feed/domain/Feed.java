@@ -16,7 +16,7 @@ public class Feed extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "jsonb")
+    @Column(columnDefinition = "json")
     private FeedContents contents;
 
     @ManyToOne

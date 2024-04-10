@@ -16,7 +16,7 @@ public class Notification extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition= "jsonb")
+    @Column(columnDefinition= "json")
     private NotificationContents contents;
 
     @ManyToOne

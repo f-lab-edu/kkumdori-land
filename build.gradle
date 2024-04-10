@@ -39,6 +39,8 @@ dependencies {
 
     // db
     runtimeOnly 'com.h2database:h2'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
+    runtimeOnly 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {
