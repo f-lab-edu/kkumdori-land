@@ -25,10 +25,10 @@ public class UserServiceTest {
         String password = "password";
 
         // when
-        boolean isJoined = userService.join(new UserJoinDTO(name, email, password));
+        long userId = userService.join(new UserJoinDTO(name, email, password));
 
         // then
-        assertThat(isJoined).isTrue();
+        assertThat(userId).isNotNull();
     }
 
     @Test
