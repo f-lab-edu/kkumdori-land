@@ -15,7 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "kkumdoriland")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "org.example.kkumdoriland")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)

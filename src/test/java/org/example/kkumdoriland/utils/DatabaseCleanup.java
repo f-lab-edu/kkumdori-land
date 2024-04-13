@@ -1,9 +1,10 @@
 package org.example.kkumdoriland.utils;
 
+import com.google.common.base.CaseFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.metamodel.EntityType;
+import jakarta.persistence.Table;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.InitializingBean;
@@ -24,7 +25,14 @@ public class DatabaseCleanup implements InitializingBean {
         tableNames = entityManager
             .getMetamodel().getEntities().stream()
             .filter(entity -> entity.getJavaType().getAnnotation(Entity.class) != null)
-            .map(EntityType::getName)
+            .map(entity -> {
+                final Table annotation = entity.getJavaType().getAnnotation(Table.class);
+                if (annotation != null) {
+                    return annotation.name();
+                }
+
+                return entity.getName();
+            })
             .collect(Collectors.toList());
     }
 
@@ -33,9 +41,10 @@ public class DatabaseCleanup implements InitializingBean {
         entityManager.flush();
         entityManager.createNativeQuery("SET REFERENTIAL_INTEGRITY FALSE").executeUpdate();
         for(String tableName : tableNames) {
+            tableName = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, tableName);
             entityManager.createNativeQuery("TRUNCATE TABLE " + tableName).executeUpdate();
             entityManager.createNativeQuery("ALTER TABLE " + tableName + " ALTER COLUMN ID RESTART WITH 1").executeUpdate();
         }
-        entityManager.createNativeQuery("SET REFERNTIAL_INTEGRITY TRUE").executeUpdate();
+        entityManager.createNativeQuery("SET REFERENTIAL_INTEGRITY TRUE").executeUpdate();
     }
 }

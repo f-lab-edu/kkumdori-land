@@ -36,18 +36,21 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // guava
+    implementation "com.google.guava:guava:33.1.0-jre"
+
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'io.rest-assured:rest-assured:5.3.2'
     testImplementation 'io.cucumber:cucumber-java:7.16.1'
-    testImplementation("io.cucumber:cucumber-java8:7.16.1")
-    testImplementation("io.cucumber:cucumber-spring:7.16.1")
-    testImplementation("io.cucumber:cucumber-junit-platform-engine:7.16.1")
-    testImplementation("org.junit.platform:junit-platform-suite:1.10.0")
-    testImplementation("org.junit.platform:junit-platform-suite-api:1.10.0")
-    testImplementation("org.junit.platform:junit-platform-commons:1.10.0")
-    testImplementation("org.junit.platform:junit-platform-engine:1.10.0")
+    testImplementation 'io.cucumber:cucumber-java8:7.16.1'
+    testImplementation 'io.cucumber:cucumber-spring:7.16.1'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.16.1'
+    testImplementation 'org.junit.platform:junit-platform-suite:1.10.0'
+    testImplementation 'org.junit.platform:junit-platform-suite-api:1.10.0'
+    testImplementation 'org.junit.platform:junit-platform-commons:1.10.0'
+    testImplementation 'org.junit.platform:junit-platform-engine:1.10.0'
 
     // db
     runtimeOnly 'com.h2database:h2'

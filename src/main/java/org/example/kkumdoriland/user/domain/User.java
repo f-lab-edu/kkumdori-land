@@ -5,10 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.RequiredArgsConstructor;
 import org.example.kkumdoriland.common.BaseEntity;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
+@RequiredArgsConstructor
 public class User extends BaseEntity {
 
     @Id
