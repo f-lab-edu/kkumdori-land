@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.common;
+package org.example.kkumdoriland.common.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

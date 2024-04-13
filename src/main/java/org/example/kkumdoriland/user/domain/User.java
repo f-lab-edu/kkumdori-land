@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
-import org.example.kkumdoriland.common.BaseEntity;
+import org.example.kkumdoriland.common.domain.BaseEntity;
 
 @Entity
 @Table(name = "users")
