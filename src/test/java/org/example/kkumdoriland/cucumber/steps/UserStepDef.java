@@ -1,7 +1,7 @@
 package org.example.kkumdoriland.cucumber.steps;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.example.kkumdoriland.user.UserSteps.유저_생성;
+import static org.example.kkumdoriland.user.acceptance.UserSteps.유저_생성;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답에서_id_조회;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답의_STATUS_검증;
 
@@ -12,7 +12,6 @@ import java.util.List;
 import org.example.kkumdoriland.cucumber.AcceptanceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
 public class UserStepDef implements En {
 

@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.user;
+package org.example.kkumdoriland.user.acceptance;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
@@ -18,7 +18,7 @@ public class UserSteps {
             .body(params)
             .contentType(MediaType.APPLICATION_JSON_VALUE)
             .when()
-            .post("/join")
+            .post("/user/join")
             .then().log().all()
             .extract();
     }
