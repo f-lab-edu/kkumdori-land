@@ -37,5 +37,5 @@ out/
 .vscode/
 
 ### secrets ###
-**/src/main/**/application.properties
+application.properties
 /data/*
