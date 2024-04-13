@@ -5,12 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.example.kkumdoriland.common.BaseEntity;
 
 @Entity
 @Table(name = "users")
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class User extends BaseEntity {
 
     @Id
@@ -20,4 +20,10 @@ public class User extends BaseEntity {
     private String name;
     private String email;
     private String password;
+
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 }
