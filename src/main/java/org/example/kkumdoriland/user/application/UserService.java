@@ -15,7 +15,6 @@ public class UserService {
 
     public UserResponse join(UserJoinDTO dto) {
         // validation logic
-        System.out.println("dto.email() = " + dto.getEmail() + " dto.getName() = " + dto.getName() + " dto.getPassword() = " + dto.getPassword());
         validateDuplicatedEmail(dto);
 
 
