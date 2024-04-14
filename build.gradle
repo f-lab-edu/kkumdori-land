@@ -21,25 +21,47 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    log_back_access_version = '4.1.1'
+    guava_version = '33.1.0-jre'
+    rest_assured_version = '5.3.2'
+    cucumber_version = '7.16.1'
+    junit_platform_version = '1.10.0'
+}
+
 dependencies {
     // spring
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     // log
-    implementation 'dev.akkinoc.spring.boot:logback-access-spring-boot-starter:4.1.1'
+    implementation "dev.akkinoc.spring.boot:logback-access-spring-boot-starter:$log_back_access_version"
 
     // lombok
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // guava
+    implementation "com.google.guava:guava:$guava_version"
+
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation "io.rest-assured:rest-assured:5.3.2"
+    testImplementation "io.cucumber:cucumber-java:$cucumber_version"
+    testImplementation "io.cucumber:cucumber-java8:$cucumber_version"
+    testImplementation "io.cucumber:cucumber-spring:$cucumber_version"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:$cucumber_version"
+    testImplementation "org.junit.platform:junit-platform-suite:$junit_platform_version"
+    testImplementation "org.junit.platform:junit-platform-suite-api:$junit_platform_version"
+    testImplementation "org.junit.platform:junit-platform-commons:$junit_platform_version"
+    testImplementation "org.junit.platform:junit-platform-engine:$junit_platform_version"
 
     // db
     runtimeOnly 'com.h2database:h2'
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
     runtimeOnly 'org.postgresql:postgresql'
 }
 

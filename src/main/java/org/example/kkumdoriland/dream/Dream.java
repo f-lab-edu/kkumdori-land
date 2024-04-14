@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
-import org.example.kkumdoriland.common.BaseEntity;
+import org.example.kkumdoriland.common.domain.BaseEntity;
 import org.example.kkumdoriland.user.domain.User;
 
 @Entity
