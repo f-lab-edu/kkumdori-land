@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.example.kkumdoriland.user.application.UserService;
 import org.example.kkumdoriland.user.dto.UserJoinDTO;
+import org.example.kkumdoriland.user.dto.UserResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +26,7 @@ public class UserServiceTest {
         String password = "password";
 
         // when
-        long userId = userService.join(new UserJoinDTO(name, email, password));
+        UserResponse userId = userService.join(new UserJoinDTO(name, email, password));
 
         // then
         assertThat(userId).isNotNull();
