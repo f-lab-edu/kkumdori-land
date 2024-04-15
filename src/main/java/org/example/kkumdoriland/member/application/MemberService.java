@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     public MemberResponse join(MemberJoinDTO dto) {
         final Member userToCreate = toMember(dto.getName(), dto.getEmail(), dto.getPassword());
@@ -41,15 +40,7 @@ public class MemberService {
             throw new MemberException(MemberErrorCode.USER_PASSWORD_MISMATCH, "비밀번호가 일치하지 않습니다.");
         }
 
-        try {
-            final UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword());
-            final Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-
-            return MemberResponse.of(user);
-        } catch (Exception e) {
-            throw new MemberException(MemberErrorCode.AUTHENTICATION_FAILED, "인증에 실패했습니다.");
-        }
+        return MemberResponse.of(user);
     }
 
     private void validateDuplicatedEmail(Member user) {
