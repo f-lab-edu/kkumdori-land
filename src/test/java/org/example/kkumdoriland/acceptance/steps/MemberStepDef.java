@@ -1,6 +1,7 @@
 package org.example.kkumdoriland.acceptance.steps;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.example.kkumdoriland.acceptance.domains.MemberSteps.유저_로그인;
 import static org.example.kkumdoriland.acceptance.domains.MemberSteps.유저_생성;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답에서_id_조회;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답의_STATUS_검증;
@@ -32,12 +33,20 @@ public class MemberStepDef implements En {
            context.response = 유저_생성(name, email, password);
         });
 
+        When("유저는 {string}, {string}을 이용해 로그인한다.", (String email, String password) -> {
+            context.response = 유저_로그인(email, password);
+        });
+
         Then("유저는 회원가입에 성공한다.", () -> {
             응답의_STATUS_검증(context.response, HttpStatus.CREATED);
         });
 
         Then("유저는 회원가입에 {int}으로 실패한다.", (Integer statusCode) -> {
             응답의_STATUS_검증(context.response, HttpStatus.valueOf(statusCode));
+        });
+
+        Then("유저는 {string}로 로그인에 성공한다.", (String name) -> {
+            assertThat(응답에서_id_조회(context.response)).isEqualTo(context.store.get(name));
         });
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 
 public class MemberSteps {
     public static ExtractableResponse<Response> 유저_생성(String name, String email, String password) {
-        Map<String, String> params = new HashMap<>();
+        final Map<String, String> params = new HashMap<>();
         params.put("name", name);
         params.put("email", email);
         params.put("password", password);
@@ -19,6 +19,20 @@ public class MemberSteps {
             .contentType(MediaType.APPLICATION_JSON_VALUE)
             .when()
             .post("/user/join")
+            .then().log().all()
+            .extract();
+    }
+
+    public static ExtractableResponse<Response> 유저_로그인(String email, String password) {
+        final Map<String, String> params = new HashMap<>();
+        params.put("email", email);
+        params.put("password", password);
+
+        return RestAssured.given().log().all()
+            .body(params)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .when()
+            .post("/user/login")
             .then().log().all()
             .extract();
     }
