@@ -1,7 +1,7 @@
 package org.example.kkumdoriland.acceptance.steps;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.example.kkumdoriland.acceptance.domains.UserSteps.유저_생성;
+import static org.example.kkumdoriland.acceptance.domains.MemberSteps.유저_생성;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답에서_id_조회;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답의_STATUS_검증;
 
@@ -13,12 +13,12 @@ import org.example.kkumdoriland.acceptance.AcceptanceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
-public class UserStepDef implements En {
+public class MemberStepDef implements En {
 
     @Autowired
     private AcceptanceContext context;
 
-    public UserStepDef() {
+    public MemberStepDef() {
         Given("유저 정보를 생성하고", (DataTable table) -> {
             List<Map<String, String>> maps = table.asMaps();
 

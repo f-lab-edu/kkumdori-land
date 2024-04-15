@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.http.MediaType;
 
-public class UserSteps {
+public class MemberSteps {
     public static ExtractableResponse<Response> 유저_생성(String name, String email, String password) {
         Map<String, String> params = new HashMap<>();
         params.put("name", name);

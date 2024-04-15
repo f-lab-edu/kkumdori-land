@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import org.example.kkumdoriland.common.domain.BaseEntity;
-import org.example.kkumdoriland.user.domain.User;
+import org.example.kkumdoriland.member.domain.Member;
 
 @Entity
 public class Notification extends BaseEntity {
@@ -21,5 +21,5 @@ public class Notification extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="userId")
-    private User user;
+    private Member user;
 }

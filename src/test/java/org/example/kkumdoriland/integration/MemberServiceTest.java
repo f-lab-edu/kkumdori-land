@@ -4,15 +4,15 @@ package org.example.kkumdoriland.integration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.example.kkumdoriland.user.application.UserService;
-import org.example.kkumdoriland.user.dto.UserJoinDTO;
-import org.example.kkumdoriland.user.dto.UserResponse;
+import org.example.kkumdoriland.member.application.MemberService;
+import org.example.kkumdoriland.member.dto.MemberJoinDTO;
+import org.example.kkumdoriland.member.dto.MemberResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserServiceTest extends IntegrationTestBase {
+public class MemberServiceTest extends IntegrationTestBase {
     @Autowired
-    private UserService userService;
+    private MemberService userService;
 
     @Test
     void 회원가입__성공() {
@@ -22,7 +22,7 @@ public class UserServiceTest extends IntegrationTestBase {
         String password = "password";
 
         // when
-        UserResponse userId = userService.join(new UserJoinDTO(name, email, password));
+        MemberResponse userId = userService.join(new MemberJoinDTO(name, email, password));
 
         // then
         assertThat(userId).isNotNull();
@@ -35,9 +35,9 @@ public class UserServiceTest extends IntegrationTestBase {
         String email = "email@a.b";
         String password = "password";
 
-        userService.join(new UserJoinDTO(name, email, password));
+        userService.join(new MemberJoinDTO(name, email, password));
 
         // when
-        assertThatThrownBy(() -> userService.join(new UserJoinDTO(name, email, password)));
+        assertThatThrownBy(() -> userService.join(new MemberJoinDTO(name, email, password)));
     }
 }
