@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.cucumber;
+package org.example.kkumdoriland.acceptance;
 
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;

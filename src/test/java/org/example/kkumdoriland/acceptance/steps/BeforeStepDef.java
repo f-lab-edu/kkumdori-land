@@ -1,9 +1,8 @@
-package org.example.kkumdoriland.cucumber.steps;
+package org.example.kkumdoriland.acceptance.steps;
 
 import io.cucumber.java8.En;
 import org.example.kkumdoriland.utils.DatabaseCleanup;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 public class BeforeStepDef implements En  {
 

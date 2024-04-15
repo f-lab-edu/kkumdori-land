@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.user.unit;
+package org.example.kkumdoriland.integration;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -7,11 +7,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.example.kkumdoriland.user.application.UserService;
 import org.example.kkumdoriland.user.dto.UserJoinDTO;
 import org.example.kkumdoriland.user.dto.UserResponse;
-import org.example.kkumdoriland.utils.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserServiceTest extends IntegrationTest {
+public class UserServiceTest extends IntegrationTestBase {
     @Autowired
     private UserService userService;
 

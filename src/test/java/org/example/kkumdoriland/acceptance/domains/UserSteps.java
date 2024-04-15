@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.user.acceptance;
+package org.example.kkumdoriland.acceptance.domains;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
