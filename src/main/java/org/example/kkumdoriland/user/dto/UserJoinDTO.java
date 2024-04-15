@@ -15,8 +15,4 @@ public class UserJoinDTO {
     private String name;
     private String email;
     private String password;
-
-    public User toUser() {
-         return new User(name, email, password);
-    }
 }

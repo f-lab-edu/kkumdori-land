@@ -5,5 +5,5 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserException extends RuntimeException {
     private final UserErrorCode errorCode;
-    private final String string;
+    private final String message;
 }
