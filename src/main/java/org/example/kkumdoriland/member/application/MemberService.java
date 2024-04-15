@@ -20,21 +20,21 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class MemberService {
-    private final MemberRepository userRepository;
+    private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     public MemberResponse join(MemberJoinDTO dto) {
-        final Member userToCreate = toUser(dto.getName(), dto.getEmail(), dto.getPassword());
+        final Member userToCreate = toMember(dto.getName(), dto.getEmail(), dto.getPassword());
 
         // validation logic
         validateDuplicatedEmail(userToCreate);
 
-        return MemberResponse.of(userRepository.save(userToCreate));
+        return MemberResponse.of(memberRepository.save(userToCreate));
     }
 
     public MemberResponse login(MemberLoginDTO dto) {
-        final Member user = userRepository.findUserByEmail(dto.getEmail())
+        final Member user = memberRepository.findMemberByEmail(dto.getEmail())
                 .orElseThrow(() -> new MemberException(MemberErrorCode.USER_NOT_FOUND, "사용자를 찾을 수 없습니다."));
 
         if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
@@ -53,12 +53,12 @@ public class MemberService {
     }
 
     private void validateDuplicatedEmail(Member user) {
-        if (userRepository.findUserByEmail(user.getEmail()).isPresent()) {
+        if (memberRepository.findMemberByEmail(user.getEmail()).isPresent()) {
             throw new MemberException(MemberErrorCode.USER_EMAIL_DUPLICATION, "이미 존재하는 이메일입니다.");
         }
     }
 
-    private Member toUser(String name, String email, String password) {
+    private Member toMember(String name, String email, String password) {
         return new Member(name, email, passwordEncoder.encode(password));
     }
 
