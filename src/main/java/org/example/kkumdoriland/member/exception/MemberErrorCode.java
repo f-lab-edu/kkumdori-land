@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum MemberErrorCode {
-    USER_EMAIL_DUPLICATION("User already exists with email");
+    USER_EMAIL_DUPLICATION("User already exists with email"),
+    USER_NOT_FOUND("User not found"),
+    USER_PASSWORD_MISMATCH("Password does not match");
 
     private final String message;
 }

@@ -21,7 +21,7 @@ public class WebSecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .headers(header -> header.frameOptions(FrameOptionsConfig::sameOrigin))
             .authorizeHttpRequests(requests -> requests
-                .requestMatchers(HttpMethod.POST, "/user/join").permitAll()
+                .requestMatchers(HttpMethod.POST, "/user/join", "/user/login").permitAll()
                 .anyRequest().authenticated()
             );
         
