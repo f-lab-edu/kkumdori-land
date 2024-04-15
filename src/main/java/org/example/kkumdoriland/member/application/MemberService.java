@@ -8,9 +8,10 @@ import org.example.kkumdoriland.member.dto.MemberResponse;
 import org.example.kkumdoriland.member.exception.MemberErrorCode;
 import org.example.kkumdoriland.member.exception.MemberException;
 import org.example.kkumdoriland.member.repository.MemberRepository;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberService {
     private final MemberRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     public MemberResponse join(MemberJoinDTO dto) {
         final Member userToCreate = toUser(dto.getName(), dto.getEmail(), dto.getPassword());
@@ -39,7 +41,15 @@ public class MemberService {
             throw new MemberException(MemberErrorCode.USER_PASSWORD_MISMATCH, "비밀번호가 일치하지 않습니다.");
         }
 
-        return MemberResponse.of(user);
+        try {
+            final UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword());
+            final Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+
+            return MemberResponse.of(user);
+        } catch (Exception e) {
+            throw new MemberException(MemberErrorCode.AUTHENTICATION_FAILED, "인증에 실패했습니다.");
+        }
     }
 
     private void validateDuplicatedEmail(Member user) {
