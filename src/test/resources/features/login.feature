@@ -17,3 +17,11 @@ Feature: 유저 관련 기능
     Scenario: 유저는 로그인에 성공한다.
       When 유저는 "test1@admin.com", "1234"을 이용해 로그인한다.
       Then 유저는 "test1"로 로그인에 성공한다.
+
+    Scenario: 유저는 로그인에 실패한다.
+      When 유저는 "test5@admin.com", "1234"을 이용해 로그인한다.
+      Then 유저는 로그인에 404로 실패한다.
+
+    Scenario: 유저는 로그인에 실패한다.
+      When 유저는 "test1@admin.com", "12345"을 이용해 로그인한다.
+      Then 유저는 로그인에 401로 실패한다.

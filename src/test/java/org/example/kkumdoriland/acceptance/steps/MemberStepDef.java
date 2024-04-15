@@ -48,5 +48,9 @@ public class MemberStepDef implements En {
         Then("유저는 {string}로 로그인에 성공한다.", (String name) -> {
             assertThat(응답에서_id_조회(context.response)).isEqualTo(context.store.get(name));
         });
+
+        Then("유저는 로그인에 {int}로 실패한다.", (Integer statusCode) -> {
+            응답의_STATUS_검증(context.response, HttpStatus.valueOf(statusCode));
+        });
     }
 }
