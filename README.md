@@ -34,13 +34,11 @@
 - [uizard](https://app.uizard.io/p/0702d861)
 ![스크린샷 2024-04-07 오전 10 27 55](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/a5ee0937-4e01-4a2a-9154-66028a2798a1)
 
-
 ### 도메인 설계
-![스크린샷 2024-04-09 오전 7 29 57](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/c50d1dc8-ecac-48c3-9de0-b6b3f005d645)
-
+![스크린샷 2024-04-27 오후 6 12 52](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/0ece9024-3e94-45f2-9858-be9d989d8f43)
 
 ### 테이블 설계
-![스크린샷 2024-04-09 오전 8 27 48](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/9ffea557-f224-414b-99fb-3621dd40b82e)
+![스크린샷 2024-04-27 오후 6 11 54](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/17af36fd-9f3e-446f-ae39-a6c81dbfe40a)
 
 
 
