@@ -2,6 +2,7 @@ package org.example.kkumdoriland.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,12 +17,14 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
     @Bean
+    @Order(1)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable)
+            .securityMatcher("/api/**")
             .headers(header -> header.frameOptions(FrameOptionsConfig::sameOrigin))
             .authorizeHttpRequests(requests -> requests
-                .requestMatchers(HttpMethod.POST, "/user/join", "/user/login").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/user/join", "/api/user/login").permitAll()
                 .anyRequest().authenticated()
             );
         
