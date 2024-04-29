@@ -1,17 +1,24 @@
 package org.example.kkumdoriland.member.domain;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Set;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.kkumdoriland.common.domain.BaseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Getter
 @NoArgsConstructor
@@ -27,9 +34,9 @@ public class Member extends BaseEntity {
     private String email;
     private String password;
 
-    public Member(String name, String email, String password) {
+    public Member(PasswordEncoder passwordEncoder, String name, String email, String password) {
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.password = passwordEncoder.encode(password);
     }
 }
