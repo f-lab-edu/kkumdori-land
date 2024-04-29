@@ -38,7 +38,7 @@
 ![스크린샷 2024-04-27 오후 6 12 52](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/0ece9024-3e94-45f2-9858-be9d989d8f43)
 
 ### 테이블 설계
-![스크린샷 2024-04-27 오후 6 11 54](https://github.com/f-lab-edu/kkumdori-land/assets/29042329/17af36fd-9f3e-446f-ae39-a6c81dbfe40a)
+- [[자료] 테이블 설계](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9E%90%EB%A3%8C%5D-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%84%A4%EA%B3%84)
 
 
 
