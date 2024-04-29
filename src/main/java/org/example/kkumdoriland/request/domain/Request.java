@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.EnumType;
 import org.example.kkumdoriland.common.domain.BaseEntity;
-import org.example.kkumdoriland.user.domain.User;
+import org.example.kkumdoriland.member.domain.Member;
 
 @Entity
 public class Request extends BaseEntity {
@@ -19,11 +19,11 @@ public class Request extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="requesterId")
-    private User requester;
+    private Member requester;
 
     @ManyToOne
     @JoinColumn(name="receiverId")
-    private User receiver;
+    private Member receiver;
 
     private boolean requesterLiked = true;
     private boolean receiverLiked = false;

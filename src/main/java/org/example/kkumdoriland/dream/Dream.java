@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import org.example.kkumdoriland.common.domain.BaseEntity;
-import org.example.kkumdoriland.user.domain.User;
+import org.example.kkumdoriland.member.domain.Member;
 
 @Entity
 public class Dream extends BaseEntity {
@@ -25,5 +25,5 @@ public class Dream extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="ownerId")
-    private User user;
+    private Member user;
 }
