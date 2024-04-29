@@ -34,9 +34,13 @@ public class Member extends BaseEntity {
     private String email;
     private String password;
 
-    public Member(PasswordEncoder passwordEncoder, String name, String email, String password) {
+    @ElementCollection(fetch = FetchType.LAZY)
+    private Set<MemberRole> roles = new HashSet<>();
+
+    public Member(PasswordEncoder passwordEncoder, String name, String email, String password, Set<MemberRole> roles) {
         this.name = name;
         this.email = email;
         this.password = passwordEncoder.encode(password);
+        this.roles = Set.copyOf(roles);
     }
 }
