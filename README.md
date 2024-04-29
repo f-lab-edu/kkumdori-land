@@ -25,7 +25,7 @@
 - [[의사결정] 환경](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-%ED%99%98%EA%B2%BD)
 
 #### 프로젝트 관련 의사 결정
-- 
+- [[의사결정] 프로젝트](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%A9%ED%96%A5)
 
 #### 기능 관련 의사 결정
 - [[의사결정] 기능](https://github.com/f-lab-edu/kkumdori-land/wiki/%5B%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%5D-%EA%B8%B0%EB%8A%A5)
