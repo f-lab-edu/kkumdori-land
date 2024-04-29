@@ -24,7 +24,7 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
 
     public MemberResponse join(MemberJoinDTO dto) {
-        final Member userToCreate = toMember(dto.getName(), dto.getEmail(), dto.getPassword());
+        final Member userToCreate = dto.toMember(passwordEncoder);
 
         // validation logic
         validateDuplicatedEmail(userToCreate);
@@ -48,9 +48,4 @@ public class MemberService {
             throw new MemberException(MemberErrorCode.USER_EMAIL_DUPLICATION, "이미 존재하는 이메일입니다.");
         }
     }
-
-    private Member toMember(String name, String email, String password) {
-        return new Member(name, email, passwordEncoder.encode(password));
-    }
-
 }
