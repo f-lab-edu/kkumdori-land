@@ -1,23 +1,30 @@
 package org.example.kkumdoriland.member.dto;
 
 
+import java.util.HashSet;
 import java.util.Set;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.example.kkumdoriland.member.domain.Member;
 import org.example.kkumdoriland.member.domain.MemberRole;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.jetbrains.annotations.Nullable;
+
 
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberJoinDTO {
-    private String name;
+public class MemberDTO {
+    private Long id;
     private String email;
-    private String password;
+    private String name;
 
-    public Member toMember(PasswordEncoder encoder) {
-        return new Member(encoder, name, email, password, MemberRole.USER);
+    @Nullable
+    private String password;
+    private MemberRole roles;
+
+    public void clearPassword() {
+        password = null;
     }
 }

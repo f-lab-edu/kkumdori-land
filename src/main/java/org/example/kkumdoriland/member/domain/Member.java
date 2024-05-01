@@ -2,6 +2,8 @@ package org.example.kkumdoriland.member.domain;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
+@Table
 public class Member extends BaseEntity {
 
     @Id
@@ -34,13 +36,13 @@ public class Member extends BaseEntity {
     private String email;
     private String password;
 
-    @ElementCollection(fetch = FetchType.LAZY)
-    private Set<MemberRole> roles = new HashSet<>();
+    @Enumerated(EnumType.STRING)
+    private MemberRole roles;
 
-    public Member(PasswordEncoder passwordEncoder, String name, String email, String password, Set<MemberRole> roles) {
+    public Member(PasswordEncoder passwordEncoder, String name, String email, String password, MemberRole roles) {
         this.name = name;
         this.email = email;
         this.password = passwordEncoder.encode(password);
-        this.roles = Set.copyOf(roles);
+        this.roles = roles;
     }
 }
