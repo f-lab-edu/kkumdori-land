@@ -18,7 +18,7 @@ public class MemberSteps {
             .body(params)
             .contentType(MediaType.APPLICATION_JSON_VALUE)
             .when()
-            .post("/user/join")
+            .post("/api/user/join")
             .then().log().all()
             .extract();
     }
@@ -32,7 +32,7 @@ public class MemberSteps {
             .body(params)
             .contentType(MediaType.APPLICATION_JSON_VALUE)
             .when()
-            .post("/user/login")
+            .post("/api/user/login")
             .then().log().all()
             .extract();
     }
