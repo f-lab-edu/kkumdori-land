@@ -18,6 +18,6 @@ public class MemberJoinDTO {
     private String password;
 
     public Member toMember(PasswordEncoder encoder) {
-        return new Member(encoder, name, email, password, MemberRole.USER);
+        return new Member(name, email, encoder.encode(password), MemberRole.USER);
     }
 }

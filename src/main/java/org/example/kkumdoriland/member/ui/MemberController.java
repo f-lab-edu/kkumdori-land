@@ -8,6 +8,9 @@ import org.example.kkumdoriland.member.application.MemberService;
 import org.example.kkumdoriland.member.dto.MemberJoinDTO;
 import org.example.kkumdoriland.member.dto.MemberResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,10 +30,9 @@ public class MemberController {
     }
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpServletRequest httpServletRequest) {
-
-        HttpSession session = httpServletRequest.getSession(false);
-        if(session != null) {
-            session.invalidate();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null) {
+            new SecurityContextLogoutHandler().logout(httpServletRequest, null, authentication);
         }
 
         return ResponseEntity.noContent().build();
