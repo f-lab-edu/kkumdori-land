@@ -20,15 +20,15 @@ public class AuthService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
 
+    /**
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        final Optional<Member> result = memberRepository.findMemberByEmail(username);
+    public UserDetails loadUserByUsername(String username) {
+        final Member member = memberRepository.findMemberByEmail(username).orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
 
-        if(result.isEmpty()) {
-            throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
-        }
-
-        final Member member = result.get();
         final List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(member.getRoles().name()));
 
         final MemberDTO memberDTO = MemberDTO.builder()
