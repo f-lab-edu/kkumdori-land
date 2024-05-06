@@ -2,6 +2,7 @@ package org.example.kkumdoriland.notification.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,7 +20,7 @@ public class Notification extends BaseEntity {
     @Column(columnDefinition= "json")
     private NotificationContents contents;
 
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="userId")
     private Member user;
 }
