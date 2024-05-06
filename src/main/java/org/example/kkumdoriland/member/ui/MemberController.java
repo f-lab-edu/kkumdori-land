@@ -1,10 +1,9 @@
 package org.example.kkumdoriland.member.ui;
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import java.net.URI;
 import lombok.RequiredArgsConstructor;
-import org.example.kkumdoriland.member.application.MemberService;
+import org.example.kkumdoriland.member.service.MemberService;
 import org.example.kkumdoriland.member.dto.MemberJoinDTO;
 import org.example.kkumdoriland.member.dto.MemberResponse;
 import org.springframework.http.ResponseEntity;

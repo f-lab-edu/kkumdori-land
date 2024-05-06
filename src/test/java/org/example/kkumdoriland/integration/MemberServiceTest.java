@@ -4,7 +4,7 @@ package org.example.kkumdoriland.integration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.example.kkumdoriland.member.application.MemberService;
+import org.example.kkumdoriland.member.service.MemberService;
 import org.example.kkumdoriland.member.dto.MemberJoinDTO;
 import org.example.kkumdoriland.member.dto.MemberResponse;
 import org.junit.jupiter.api.Test;

@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.example.kkumdoriland.dream.dto.DreamCreateDTO;
 import org.example.kkumdoriland.dream.dto.DreamResponse;
 import org.example.kkumdoriland.dream.service.DreamService;
-import org.example.kkumdoriland.member.application.MemberService;
+import org.example.kkumdoriland.member.service.MemberService;
 import org.example.kkumdoriland.member.dto.MemberJoinDTO;
 import org.example.kkumdoriland.member.dto.MemberResponse;
 import org.junit.jupiter.api.BeforeEach;
