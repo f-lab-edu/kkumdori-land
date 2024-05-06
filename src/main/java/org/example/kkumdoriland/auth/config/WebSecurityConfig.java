@@ -2,6 +2,8 @@ package org.example.kkumdoriland.auth.config;
 
 import lombok.RequiredArgsConstructor;
 import org.example.kkumdoriland.auth.filter.RestAuthenticationFilter;
+import org.example.kkumdoriland.auth.handler.RestAccessDeniedHandler;
+import org.example.kkumdoriland.auth.handler.RestAuthenticationEntryPoint;
 import org.example.kkumdoriland.auth.handler.RestAuthenticationFailureHandler;
 import org.example.kkumdoriland.auth.handler.RestAuthenticationSuccessHandler;
 import org.example.kkumdoriland.auth.provider.RestAuthenticationProvider;
@@ -24,6 +26,8 @@ public class WebSecurityConfig {
     private final RestAuthenticationProvider restAuthenticationProvider;
     private final RestAuthenticationSuccessHandler restAuthenticationSuccessHandler;
     private final RestAuthenticationFailureHandler restAuthenticationFailureHandler;
+    private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+    private final RestAccessDeniedHandler restAccessDeniedHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -39,6 +43,7 @@ public class WebSecurityConfig {
             )
             .authenticationManager(authenticationManager)
             .addFilterBefore(restAuthenticationFilter(http, authenticationManager), UsernamePasswordAuthenticationFilter.class)
+            .exceptionHandling(exception -> exception.authenticationEntryPoint(restAuthenticationEntryPoint).accessDeniedHandler(restAccessDeniedHandler))
             .csrf(AbstractHttpConfigurer::disable)
         ;
         
