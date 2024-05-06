@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.dream;
+package org.example.kkumdoriland.dream.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
