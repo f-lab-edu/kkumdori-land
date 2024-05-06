@@ -8,10 +8,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.example.kkumdoriland.common.domain.BaseEntity;
 import org.example.kkumdoriland.member.domain.Member;
 
 @Entity
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Dream extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
