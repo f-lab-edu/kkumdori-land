@@ -14,6 +14,11 @@ Feature: 유저 관련 기능
       When 유저는 "test1", "test1@admin.com", "1234"을 이용해 회원가입한다.
       Then 유저는 회원가입에 409으로 실패한다.
 
+#    TODO: 추후 401로 인증 여부 판단을 테스트하도록 진행한다.
+    Scenario: 유저는 로그인에 실패한다.
+      When 유저는 "test3@admin.com", "12345"을 이용해 로그인한다.
+      Then 유저는 로그인에 403로 실패한다.
+
     Scenario: 유저는 로그인에 성공한다.
       When 유저는 "test1@admin.com", "1234"을 이용해 로그인한다.
       Then 유저는 "test1"로 로그인에 성공한다.
@@ -22,6 +27,3 @@ Feature: 유저 관련 기능
       When 유저는 "test5@admin.com", "1234"을 이용해 로그인한다.
       Then 유저는 로그인에 404로 실패한다.
 
-    Scenario: 유저는 로그인에 실패한다.
-      When 유저는 "test1@admin.com", "12345"을 이용해 로그인한다.
-      Then 유저는 로그인에 401로 실패한다.

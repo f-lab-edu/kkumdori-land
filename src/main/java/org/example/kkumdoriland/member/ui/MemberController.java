@@ -1,12 +1,16 @@
 package org.example.kkumdoriland.member.ui;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import org.example.kkumdoriland.member.application.MemberService;
 import org.example.kkumdoriland.member.dto.MemberJoinDTO;
-import org.example.kkumdoriland.member.dto.MemberLoginDTO;
 import org.example.kkumdoriland.member.dto.MemberResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,11 +28,13 @@ public class MemberController {
 
         return ResponseEntity.created(URI.create("/user/" + user.getId())).body(user);
     }
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(HttpServletRequest httpServletRequest) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null) {
+            new SecurityContextLogoutHandler().logout(httpServletRequest, null, authentication);
+        }
 
-    @PostMapping("/login")
-    public ResponseEntity<MemberResponse> login(@RequestBody MemberLoginDTO dto) {
-        final MemberResponse user = userService.login(dto);
-
-        return ResponseEntity.ok().body(user);
+        return ResponseEntity.noContent().build();
     }
 }
