@@ -10,13 +10,16 @@ import org.example.kkumdoriland.member.domain.Member;
 import org.example.kkumdoriland.member.repository.MemberRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class DreamService {
     private final DreamRepository dreamRepository;
     private final MemberRepository memberRepository;
 
+    @Transactional
     public DreamResponse createDream(Long memberId, DreamCreateDTO dto) {
         final Member member = memberRepository.findMemberById(memberId).orElseThrow(() -> new UsernameNotFoundException("User not found"));
         final Dream dream = Dream.builder()
