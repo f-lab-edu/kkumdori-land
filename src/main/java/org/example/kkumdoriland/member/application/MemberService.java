@@ -24,9 +24,7 @@ public class MemberService {
         // validation logic
         validateDuplicatedEmail(userToCreate);
 
-        final Member member = memberRepository.save(userToCreate);
-
-        return MemberResponse.of(member);
+        return MemberResponse.of(memberRepository.save(userToCreate));
     }
     private void validateDuplicatedEmail(Member user) {
         if (memberRepository.findMemberByEmail(user.getEmail()).isPresent()) {
