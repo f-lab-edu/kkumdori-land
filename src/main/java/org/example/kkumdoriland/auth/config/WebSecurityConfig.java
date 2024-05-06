@@ -31,7 +31,7 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
+        final AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.authenticationProvider(restAuthenticationProvider);
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
@@ -43,6 +43,7 @@ public class WebSecurityConfig {
             )
             .authenticationManager(authenticationManager)
             .addFilterBefore(restAuthenticationFilter(http, authenticationManager), UsernamePasswordAuthenticationFilter.class)
+            .sessionManagement(sessionManagement -> sessionManagement.maximumSessions(3).maxSessionsPreventsLogin(true))
             .exceptionHandling(exception -> exception.authenticationEntryPoint(restAuthenticationEntryPoint).accessDeniedHandler(restAccessDeniedHandler))
             .csrf(AbstractHttpConfigurer::disable)
         ;
