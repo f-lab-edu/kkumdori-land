@@ -23,7 +23,7 @@ public class MemberController {
     public final MemberService userService;
 
     @PostMapping("/join")
-    public ResponseEntity<MemberResponse> join(@RequestBody MemberJoinDTO dto, HttpServletRequest httpServletRequest) {
+    public ResponseEntity<MemberResponse> join(@RequestBody MemberJoinDTO dto) {
         final MemberResponse user = userService.join(dto);
 
         return ResponseEntity.created(URI.create("/user/" + user.getId())).body(user);
