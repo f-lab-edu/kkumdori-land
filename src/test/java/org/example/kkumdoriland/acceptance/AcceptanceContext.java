@@ -10,6 +10,17 @@ import org.springframework.stereotype.Component;
 @Profile("test")
 @Component
 public class AcceptanceContext {
+
+    private static final String TOKEN_POSTFIX = "_token";
+
     public Map<String, Object> store = new HashMap<>();
     public ExtractableResponse<Response> response;
+
+    public void setToken(String userName, String token) {
+        store.put(userName + TOKEN_POSTFIX, token);
+    }
+
+    public String getToken(String userName) {
+        return (String) store.get(userName + TOKEN_POSTFIX);
+    }
 }

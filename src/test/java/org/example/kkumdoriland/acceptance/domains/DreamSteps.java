@@ -24,4 +24,22 @@ public class DreamSteps {
             .then().log().all()
             .extract();
     }
+
+    public static ExtractableResponse<Response> 마일스톤_생성(String cookie, Long dreamId, String title, String description, int totalScoreToEarn, int minimumStepSize) {
+        final Map<String, String> params = new HashMap<>();
+        params.put("title", title);
+        params.put("description", description);
+        params.put("totalScoreToEarn", Integer.toString(totalScoreToEarn));
+        params.put("minimumStepSize", Integer.toString(minimumStepSize));
+        params.put("dreamId", Long.toString(dreamId));
+
+        return RestAssured.given().log().all()
+            .cookie("JSESSIONID", cookie)
+            .body(params)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .when()
+            .post("/api/dream/milestone")
+            .then().log().all()
+            .extract();
+    }
 }
