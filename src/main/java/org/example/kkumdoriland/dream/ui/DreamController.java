@@ -2,6 +2,7 @@ package org.example.kkumdoriland.dream.ui;
 
 import jakarta.validation.Valid;
 import java.net.URI;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.example.kkumdoriland.auth.dto.AuthContext;
 import org.example.kkumdoriland.dream.dto.DailyHistoryCreateDTO;
@@ -15,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +26,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DreamController {
     public final DreamService dreamService;
 
-    @GetMapping("/{dreamId}")
-    public ResponseEntity<DreamResponse> getDream(@PathVariable Long dreamId) {
-        final DreamResponse dream = dreamService.getDream(dreamId);
-
-        return ResponseEntity.ok(dream);
+    @GetMapping()
+    public ResponseEntity<List<DreamResponse>> getDream(@AuthenticationPrincipal AuthContext authContext) {
+        return ResponseEntity.ok(dreamService.getDream(authContext.getMemberDTO().getId()));
     }
 
     @PostMapping()

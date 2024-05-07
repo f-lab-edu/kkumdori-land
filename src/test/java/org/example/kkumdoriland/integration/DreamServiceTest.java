@@ -2,6 +2,7 @@ package org.example.kkumdoriland.integration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import org.example.kkumdoriland.dream.dto.DailyHistoryCreateDTO;
 import org.example.kkumdoriland.dream.dto.DailyHistoryResponse;
 import org.example.kkumdoriland.dream.dto.DreamCreateDTO;
@@ -53,10 +54,11 @@ public class DreamServiceTest extends IntegrationTestBase {
         final DreamResponse dream = dreamService.createDream(memberId, dto);
 
         // when
-        final DreamResponse foundDream = dreamService.getDream(dream.getId());
+        final List<DreamResponse> foundDream = dreamService.getDream(memberId);
 
         // then
         assertThat(foundDream).isNotNull();
+        assertThat(foundDream.stream().map(DreamResponse::getId)).contains(dream.getId());
     }
 
     @Test

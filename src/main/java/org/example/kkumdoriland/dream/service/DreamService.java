@@ -2,6 +2,7 @@ package org.example.kkumdoriland.dream.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.example.kkumdoriland.dream.domain.DailyHistory;
 import org.example.kkumdoriland.dream.domain.Dream;
@@ -31,10 +32,8 @@ public class DreamService {
     private final DailyHistoryRepository dailyHistoryRepository;
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public DreamResponse getDream(Long dreamId) {
-        final Dream dream = dreamRepository.getReferenceById(dreamId);
-
-        return DreamResponse.of(dream);
+    public List<DreamResponse> getDream(Long memberId) {
+        return dreamRepository.findDreamsByUserId(memberId).stream().map(DreamResponse::of).toList();
     }
 
     @Transactional

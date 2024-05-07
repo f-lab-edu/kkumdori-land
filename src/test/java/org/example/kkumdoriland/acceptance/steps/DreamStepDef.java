@@ -76,7 +76,7 @@ public class DreamStepDef implements En {
         });
 
         Then("{int}개 꿈이 조회 된다.", (Integer numberOfDreams) -> {
-            assertThat(context.response.jsonPath().getList("").size()).isEqualTo(3);
+            assertThat(context.response.jsonPath().getList(".").size()).isEqualTo(3);
         });
     }
 

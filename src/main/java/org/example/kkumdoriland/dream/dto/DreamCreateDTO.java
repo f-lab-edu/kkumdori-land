@@ -1,20 +1,22 @@
 package org.example.kkumdoriland.dream.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class DreamCreateDTO {
     @NotNull
-    private final String title;
+    private String title;
 
     @NotNull
-    private final String description;
+    private String description;
 
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private final String dueDate;
+    private String dueDate;
 }
