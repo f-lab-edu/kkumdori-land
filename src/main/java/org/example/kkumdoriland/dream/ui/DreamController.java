@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import org.example.kkumdoriland.auth.dto.AuthContext;
+import org.example.kkumdoriland.dream.dto.DailyHistoryCreateDTO;
+import org.example.kkumdoriland.dream.dto.DailyHistoryResponse;
 import org.example.kkumdoriland.dream.dto.DreamCreateDTO;
 import org.example.kkumdoriland.dream.dto.DreamResponse;
 import org.example.kkumdoriland.dream.dto.MileStoneCreateDTO;
@@ -43,5 +45,12 @@ public class DreamController {
         final MileStoneResponse mileStone = dreamService.createMilestone(authContext.getMemberDTO().getId(), dto);
 
         return ResponseEntity.created(URI.create("/dream/milestone" + mileStone.getId())).body(mileStone);
+    }
+
+    @PostMapping("/milestone/dailyHistory")
+    public ResponseEntity<DailyHistoryResponse> createDailyHistory(@AuthenticationPrincipal AuthContext authContext, @Valid @RequestBody DailyHistoryCreateDTO dto) {
+        final DailyHistoryResponse dailyHistory = dreamService.createDailyHistory(authContext.getMemberDTO().getId(), dto);
+
+        return ResponseEntity.created(URI.create("/dream/milestone/dailyHistory" + dailyHistory.getId())).body(dailyHistory);
     }
 }
