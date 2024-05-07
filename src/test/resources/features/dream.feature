@@ -9,7 +9,7 @@ Feature: 꿈 관련 기능
       | name | email | password |
       | test1 | test1@admin.com | 1234 |
 
-  Scenario: 유저는 꿈을 생성한다.
+  Scenario: 유저는 꿈, 마일스톤, 하루기록을 생성한다.
     When "test1" 유저는 "test1", "descriptionForTest1", "2021-01-01"을 이용해 꿈을 생성한다.
     Then 유저는 꿈을 생성에 성공한다.
 
@@ -17,3 +17,9 @@ Feature: 꿈 관련 기능
     When "test1" 유저는 "test2", "descriptionForTest1", "2021-01-01"을 이용해 꿈을 생성한다.
     When "test1" 유저는 "test2", "milestone1", "milestoneDescription1"을 이용해 마일스톤을 생성한다.
     Then 유저는 마일스톤을 생성에 성공한다.
+
+  Scenario: 유저는 하루기록을 생성한다.
+    When "test1" 유저는 "test2", "descriptionForTest1", "2021-01-01"을 이용해 꿈을 생성한다.
+    When "test1" 유저는 "test2", "milestone1", "milestoneDescription1"을 이용해 마일스톤을 생성한다.
+    When "test1" 유저는 "dailyContentText", 10을 이용해 하루기록을 생성한다.
+    Then 유저는 하루기록을 생성에 성공한다.

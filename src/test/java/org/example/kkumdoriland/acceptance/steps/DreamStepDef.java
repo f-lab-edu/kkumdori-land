@@ -2,6 +2,7 @@ package org.example.kkumdoriland.acceptance.steps;
 
 import static org.example.kkumdoriland.acceptance.domains.DreamSteps.꿈_생성;
 import static org.example.kkumdoriland.acceptance.domains.DreamSteps.마일스톤_생성;
+import static org.example.kkumdoriland.acceptance.domains.DreamSteps.하루기록_생성;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답에서_id_조회;
 import static org.example.kkumdoriland.utils.ResponseUtils.응답의_STATUS_검증;
 
@@ -28,6 +29,15 @@ public class DreamStepDef implements En {
             );
         });
 
+        When("{string} 유저는 {string}, {int}을 이용해 하루기록을 생성한다.", (String userName, String contentText, Integer stepSize) -> {
+            context.response = 하루기록_생성(
+                context.getToken(userName),
+                응답에서_id_조회(context.response),
+                contentText,
+                stepSize
+            );
+        });
+
         Then("유저는 꿈을 생성에 성공한다.", () -> {
             응답의_STATUS_검증(context.response, HttpStatus.CREATED);
         });
@@ -35,5 +45,10 @@ public class DreamStepDef implements En {
         Then("유저는 마일스톤을 생성에 성공한다.", () -> {
             응답의_STATUS_검증(context.response, HttpStatus.CREATED);
         });
+
+        Then("유저는 하루기록을 생성에 성공한다.", () -> {
+            응답의_STATUS_검증(context.response, HttpStatus.CREATED);
+        });
+
     }
 }

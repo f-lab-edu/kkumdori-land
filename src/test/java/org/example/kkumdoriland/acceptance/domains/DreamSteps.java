@@ -42,4 +42,20 @@ public class DreamSteps {
             .then().log().all()
             .extract();
     }
+
+    public static ExtractableResponse<Response> 하루기록_생성(String cookie, long milestoneId, String contentText, int stepSize) {
+        final Map<String, String> params = new HashMap<>();
+        params.put("contentText", contentText);
+        params.put("stepSize", Integer.toString(stepSize));
+        params.put("mileStoneId", Long.toString(milestoneId));
+
+        return RestAssured.given().log().all()
+            .cookie("JSESSIONID", cookie)
+            .body(params)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .when()
+            .post("/api/dream/milestone/dailyHistory")
+            .then().log().all()
+            .extract();
+    }
 }
