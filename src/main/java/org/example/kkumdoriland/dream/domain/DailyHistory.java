@@ -8,9 +8,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.example.kkumdoriland.common.domain.BaseEntity;
 
 @Entity
+@Getter
+@NoArgsConstructor
 public class DailyHistory extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +27,10 @@ public class DailyHistory extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="mileStoneId")
     private MileStone mileStone;
+
+    public DailyHistory(String contentText, int stepSize, MileStone mileStone) {
+        this.contentText = contentText;
+        this.stepSize = stepSize;
+        this.mileStone = mileStone;
+    }
 }

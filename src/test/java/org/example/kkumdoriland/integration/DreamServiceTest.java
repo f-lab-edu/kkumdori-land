@@ -2,6 +2,8 @@ package org.example.kkumdoriland.integration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.example.kkumdoriland.dream.dto.DailyHistoryCreateDTO;
+import org.example.kkumdoriland.dream.dto.DailyHistoryResponse;
 import org.example.kkumdoriland.dream.dto.DreamCreateDTO;
 import org.example.kkumdoriland.dream.dto.DreamResponse;
 import org.example.kkumdoriland.dream.dto.MileStoneCreateDTO;
@@ -69,5 +71,20 @@ public class DreamServiceTest extends IntegrationTestBase {
 
         // then
         assertThat(milestone).isNotNull();
+    }
+
+    @Test
+    void 하루기록_생성() {
+        // given
+        final DreamCreateDTO dto = new DreamCreateDTO("title", "description", "2022-12-31");
+        final DreamResponse dream = dreamService.createDream(memberId, dto);
+        final MileStoneCreateDTO milestoneDto = new MileStoneCreateDTO(dream.getId(), "title", "description", 10, 10);
+        final MileStoneResponse milestone = dreamService.createMilestone(memberId, milestoneDto);
+
+        // when
+        final DailyHistoryResponse createdStep = dreamService.createDailyHistory(memberId, new DailyHistoryCreateDTO("content", 10, milestone.getId()));
+
+        // then
+        assertThat(createdStep).isNotNull();
     }
 }

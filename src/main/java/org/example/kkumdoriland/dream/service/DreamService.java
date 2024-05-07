@@ -3,12 +3,16 @@ package org.example.kkumdoriland.dream.service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import lombok.RequiredArgsConstructor;
+import org.example.kkumdoriland.dream.domain.DailyHistory;
 import org.example.kkumdoriland.dream.domain.Dream;
 import org.example.kkumdoriland.dream.domain.MileStone;
+import org.example.kkumdoriland.dream.dto.DailyHistoryCreateDTO;
+import org.example.kkumdoriland.dream.dto.DailyHistoryResponse;
 import org.example.kkumdoriland.dream.dto.DreamCreateDTO;
 import org.example.kkumdoriland.dream.dto.DreamResponse;
 import org.example.kkumdoriland.dream.dto.MileStoneCreateDTO;
 import org.example.kkumdoriland.dream.dto.MileStoneResponse;
+import org.example.kkumdoriland.dream.repository.DailyHistoryRepository;
 import org.example.kkumdoriland.dream.repository.DreamRepository;
 import org.example.kkumdoriland.dream.repository.MileStoneRepository;
 import org.example.kkumdoriland.member.domain.Member;
@@ -24,6 +28,7 @@ public class DreamService {
     private final DreamRepository dreamRepository;
     private final MemberRepository memberRepository;
     private final MileStoneRepository mileStoneRepository;
+    private final DailyHistoryRepository dailyHistoryRepository;
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public DreamResponse getDream(Long dreamId) {
@@ -65,5 +70,18 @@ public class DreamService {
             .build();
 
         return MileStoneResponse.of(mileStoneRepository.save(mileStone));
+    }
+
+    public DailyHistoryResponse createDailyHistory(Long memberId, DailyHistoryCreateDTO dto) {
+        final MileStone mileStone = mileStoneRepository.getReferenceById(dto.getMileStoneId());
+
+        if (!mileStone.getDream().getUser().getId().equals(memberId)) {
+            throw new IllegalArgumentException("권한이 없습니다.");
+        }
+
+        final DailyHistory dailyHistory = DailyHistoryCreateDTO.toDailyHistory(dto, mileStone);
+        dailyHistoryRepository.save(dailyHistory);
+
+        return DailyHistoryResponse.of(dailyHistory);
     }
 }
