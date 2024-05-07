@@ -58,4 +58,17 @@ public class DreamSteps {
             .then().log().all()
             .extract();
     }
+
+    public static ExtractableResponse<Response> 꿈_조회(String cookie) {
+        final Map<String, String> params = new HashMap<>();
+
+        return RestAssured.given().log().all()
+            .cookie("JSESSIONID", cookie)
+            .body(params)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .when()
+            .get("/api/dream")
+            .then().log().all()
+            .extract();
+    }
 }
