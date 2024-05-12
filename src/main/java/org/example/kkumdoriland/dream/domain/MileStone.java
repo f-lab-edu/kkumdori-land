@@ -36,4 +36,8 @@ public class MileStone extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="dreamId")
     private Dream dream;
+
+    public boolean isOwner(long memberId) {
+        return dream.isOwner(memberId);
+    }
 }

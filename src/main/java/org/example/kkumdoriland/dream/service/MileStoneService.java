@@ -7,6 +7,7 @@ import org.example.kkumdoriland.dream.dto.MileStoneCreateDTO;
 import org.example.kkumdoriland.dream.dto.MileStoneResponse;
 import org.example.kkumdoriland.dream.repository.DreamRepository;
 import org.example.kkumdoriland.dream.repository.MileStoneRepository;
+import org.example.kkumdoriland.member.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MileStoneService {
 
+    private final MemberRepository memberRepository;
     private final DreamRepository dreamRepository;
     private final MileStoneRepository mileStoneRepository;
 
@@ -22,7 +24,7 @@ public class MileStoneService {
     public MileStoneResponse createMilestone(Long memberId, MileStoneCreateDTO dto) {
         final Dream dream = dreamRepository.getReferenceById(dto.getDreamId());
 
-        if (!dream.getUser().getId().equals(memberId)) {
+        if (!dream.isOwner(memberId)) {
             throw new IllegalArgumentException("권한이 없습니다.");
         }
 

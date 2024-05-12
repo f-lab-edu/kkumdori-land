@@ -21,11 +21,11 @@ public class DailyHistoryService {
     public DailyHistoryResponse createDailyHistory(Long memberId, DailyHistoryCreateDTO dto) {
         final MileStone mileStone = mileStoneRepository.getReferenceById(dto.getMileStoneId());
 
-        if (!mileStone.getDream().getUser().getId().equals(memberId)) {
+        if (!mileStone.isOwner(memberId)) {
             throw new IllegalArgumentException("권한이 없습니다.");
         }
 
-        final DailyHistory dailyHistory = DailyHistoryCreateDTO.toDailyHistory(dto, mileStone);
+        final DailyHistory dailyHistory = dto.toDailyHistory(mileStone);
         dailyHistoryRepository.save(dailyHistory);
 
         return DailyHistoryResponse.of(dailyHistory);

@@ -20,7 +20,7 @@ public class DailyHistoryCreateDTO {
     @NotNull
     private Long mileStoneId;
 
-    public static DailyHistory toDailyHistory(DailyHistoryCreateDTO dto, MileStone mileStone) {
-        return new DailyHistory(dto.getContentText(), dto.getStepSize(), mileStone);
+    public DailyHistory toDailyHistory(MileStone mileStone) {
+        return new DailyHistory(contentText, stepSize, mileStone);
     }
 }
