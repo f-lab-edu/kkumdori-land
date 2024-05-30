@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.member.application;
+package org.example.kkumdoriland.member.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.kkumdoriland.member.domain.Member;
@@ -18,6 +18,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
 
+    @Transactional
     public MemberResponse join(MemberJoinDTO dto) {
         final Member userToCreate = dto.toMember(passwordEncoder);
 
@@ -26,6 +27,7 @@ public class MemberService {
 
         return MemberResponse.of(memberRepository.save(userToCreate));
     }
+
     private void validateDuplicatedEmail(Member user) {
         if (memberRepository.findMemberByEmail(user.getEmail()).isPresent()) {
             throw new MemberException(MemberErrorCode.USER_EMAIL_DUPLICATION, "이미 존재하는 이메일입니다.");

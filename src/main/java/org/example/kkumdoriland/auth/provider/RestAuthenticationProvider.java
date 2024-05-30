@@ -34,7 +34,7 @@ public class RestAuthenticationProvider implements AuthenticationProvider {
         final MemberDTO memberDTO = authContext.getMemberDTO();
         memberDTO.clearPassword();
 
-        return new RestAuthenticationToken(memberDTO, null, authContext.getAuthorities());
+        return new RestAuthenticationToken(authContext, null, authContext.getAuthorities());
     }
 
     @Override

@@ -29,6 +29,15 @@ public class MemberStepDef implements En {
             ));
         });
 
+        Given("^유저로 로그인한다.", (DataTable table) -> {
+            List<Map<String, String>> maps = table.asMaps();
+
+            maps.forEach(it -> context.setToken(
+                it.get("name"),
+                유저_로그인(it.get("email"), it.get("password")).cookie("JSESSIONID")
+            ));
+        });
+
         When("유저는 {string}, {string}, {string}을 이용해 회원가입한다.", (String name, String email, String password) -> {
            context.response = 유저_생성(name, email, password);
         });
