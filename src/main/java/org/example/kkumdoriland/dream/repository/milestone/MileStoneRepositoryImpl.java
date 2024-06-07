@@ -16,8 +16,8 @@ public class MileStoneRepositoryImpl implements MileStoneRepositoryCustom {
     @Override
     public MileStone findByIdWithMember(Long id) {
         return jpaQueryFactory.selectFrom(mileStone)
-                .leftJoin(mileStone.dream, dream)
-                .leftJoin(dream.user, member)
+                .leftJoin(mileStone.dream, dream).fetchJoin()
+                .leftJoin(dream.user, member).fetchJoin()
                 .where(mileStone.id.eq(id))
                 .fetchOne();
     }

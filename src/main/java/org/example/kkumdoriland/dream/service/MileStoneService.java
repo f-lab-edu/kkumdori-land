@@ -22,7 +22,7 @@ public class MileStoneService {
 
     @Transactional
     public MileStoneResponse createMilestone(Long memberId, MileStoneCreateDTO dto) {
-        final Dream dream = dreamRepository.getReferenceById(dto.getDreamId());
+        final Dream dream = dreamRepository.findByIdWithMember(dto.getDreamId());
 
         if (!dream.isOwner(memberId)) {
             throw new IllegalArgumentException("권한이 없습니다.");
