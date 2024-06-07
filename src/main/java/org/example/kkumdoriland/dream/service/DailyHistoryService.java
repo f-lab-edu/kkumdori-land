@@ -19,7 +19,7 @@ public class DailyHistoryService {
 
     @Transactional
     public DailyHistoryResponse createDailyHistory(Long memberId, DailyHistoryCreateDTO dto) {
-        final MileStone mileStone = mileStoneRepository.getReferenceById(dto.getMileStoneId());
+        final MileStone mileStone = mileStoneRepository.findByIdWithMember(dto.getMileStoneId());
 
         if (!mileStone.isOwner(memberId)) {
             throw new IllegalArgumentException("권한이 없습니다.");
