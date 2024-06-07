@@ -6,7 +6,7 @@ import org.example.kkumdoriland.dream.domain.MileStone;
 import org.example.kkumdoriland.dream.dto.DailyHistoryCreateDTO;
 import org.example.kkumdoriland.dream.dto.DailyHistoryResponse;
 import org.example.kkumdoriland.dream.repository.DailyHistoryRepository;
-import org.example.kkumdoriland.dream.repository.MileStoneRepository;
+import org.example.kkumdoriland.dream.repository.milestone.MileStoneRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

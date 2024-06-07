@@ -1,4 +1,4 @@
-package org.example.kkumdoriland.dream.repository;
+package org.example.kkumdoriland.dream.repository.milestone;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

@@ -9,7 +9,7 @@ import org.example.kkumdoriland.dream.dto.DreamCreateDTO;
 import org.example.kkumdoriland.dream.dto.DreamResponse;
 import org.example.kkumdoriland.dream.repository.DailyHistoryRepository;
 import org.example.kkumdoriland.dream.repository.DreamRepository;
-import org.example.kkumdoriland.dream.repository.MileStoneRepository;
+import org.example.kkumdoriland.dream.repository.milestone.MileStoneRepository;
 import org.example.kkumdoriland.member.domain.Member;
 import org.example.kkumdoriland.member.repository.MemberRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
