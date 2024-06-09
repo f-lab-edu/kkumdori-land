@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 @ActiveProfiles("test")
 public class MileStoneServiceTest extends IntegrationTestBase {
@@ -52,5 +53,13 @@ public class MileStoneServiceTest extends IntegrationTestBase {
         assertThat(milestone).isNotNull();
     }
 
+    @Test
+    void 마일스톤_생성__권한오류() {
+        // given
+        final DreamCreateDTO dto = new DreamCreateDTO("title", "description", "2022-12-31");
+        final DreamResponse dream = dreamService.createDream(memberId, dto);
+        final MileStoneCreateDTO milestoneDto = new MileStoneCreateDTO(dream.getId(), "title", "description", 10, 10);
 
+        assertThatThrownBy(() -> mileStoneService.createMilestone(memberId + 1, milestoneDto)).hasMessageStartingWith("권한");
+    }
 }
