@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @ActiveProfiles("test")
 public class MileStoneServiceTest extends IntegrationTestBase {
@@ -60,6 +60,6 @@ public class MileStoneServiceTest extends IntegrationTestBase {
         final DreamResponse dream = dreamService.createDream(memberId, dto);
         final MileStoneCreateDTO milestoneDto = new MileStoneCreateDTO(dream.getId(), "title", "description", 10, 10);
 
-        assertThatThrownBy(() -> mileStoneService.createMilestone(memberId + 1, milestoneDto)).hasMessageStartingWith("권한");
+        assertThatThrownBy(() -> mileStoneService.createMilestone(memberId + 1, milestoneDto)).isInstanceOf(IllegalArgumentException.class);
     }
 }
