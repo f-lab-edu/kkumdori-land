@@ -8,10 +8,5 @@ spring:
 
 logging:
   level:
-    org:
-      hibernate:
-        SQL: trace
-
-    com:
-      querydsl:
-        SQL: trace
+    org.hibernate.SQL: DEBUG
+    com.querydsl.SQL: TRACE
