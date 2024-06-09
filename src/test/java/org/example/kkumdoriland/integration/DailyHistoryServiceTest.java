@@ -1,13 +1,6 @@
 package org.example.kkumdoriland.integration;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.example.kkumdoriland.dream.dto.DailyHistoryCreateDTO;
-import org.example.kkumdoriland.dream.dto.DailyHistoryResponse;
-import org.example.kkumdoriland.dream.dto.DreamCreateDTO;
-import org.example.kkumdoriland.dream.dto.DreamResponse;
-import org.example.kkumdoriland.dream.dto.MileStoneCreateDTO;
-import org.example.kkumdoriland.dream.dto.MileStoneResponse;
+import org.example.kkumdoriland.dream.dto.*;
 import org.example.kkumdoriland.dream.service.DailyHistoryService;
 import org.example.kkumdoriland.dream.service.DreamService;
 import org.example.kkumdoriland.dream.service.MileStoneService;
@@ -17,7 +10,11 @@ import org.example.kkumdoriland.member.service.MemberService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+@ActiveProfiles("test")
 public class DailyHistoryServiceTest extends IntegrationTestBase {
     @Autowired
     private DreamService dreamService;
